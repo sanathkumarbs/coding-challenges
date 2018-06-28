@@ -1,11 +1,15 @@
 #!/usr/bin/env python
-"""Given pointer to the head node of a linked list, the task is to reverse the linked list.
-We need to reverse the list by changing links between nodes."""
+"""Reverse a LinkedList.
+
+Given pointer to the head node of a linked list, the task is to reverse the
+linked list. We need to reverse the list by changing links between nodes.
+"""
 
 from lib.linkedlist import LinkedList
 
+
 def reverse_iterative(head):
-    """Reverse a linkedlist iteratively and return its head"""
+    """Reverse a linkedlist iteratively and return its head."""
     cur = head
     prev = None
 
@@ -22,13 +26,15 @@ def reverse_iterative(head):
 
 
 class TestIterative(object):
-    def _get_sample_linkedlist(self, size = 4):
-        """Create a sample linkedlist and return the linkedlist obj"""
+    """Test class to test reverse_iterative."""
+
+    def _get_sample_linkedlist(self, size=4):
+        """Create a sample linkedlist and return the linkedlist obj."""
         ll = LinkedList()
 
         for item in range(size):
             ll.push(item)
-        
+
         return ll
 
     def test_one(self):
@@ -47,10 +53,10 @@ class TestIterative(object):
         ll.head = reverse_iterative(ll.head)
 
         assert(ll.get(0).data == 0)
-        
+
     def test_three(self):
         """Testing reverse of an empty linkedlist."""
         ll = LinkedList()
         ll.head = reverse_iterative(ll.head)
 
-        assert(ll.head == None)
+        assert(ll.head is None)
