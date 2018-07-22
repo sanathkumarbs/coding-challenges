@@ -16,8 +16,20 @@ groupsum6(0, [5, 6, 2], 7) == False
 http://codingbat.com/prob/p199368
 """
 
-def groupsum6(start, nums, target):
-    pass
+def groupsum6(index, nums, target):
+    if target == 0:
+        return True
+
+    if index >= len(nums):
+        return False
+
+    if nums[index] == 6:
+        return groupsum6(index+1, nums, target-nums[index])
+    else:
+        if groupsum6(index+1, nums, target):
+            return True
+        else:
+            return groupsum6(index+1, nums, target-nums[index])
 
 def test_groupsum6_one():
     assert(groupsum6(0, [5, 6, 2], 8) == True)

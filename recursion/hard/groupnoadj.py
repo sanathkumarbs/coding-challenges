@@ -17,8 +17,19 @@ groupnoadj(0, [2, 5, 10, 4], 7) == False
 http://codingbat.com/prob/p169605
 """
 
-def groupnoadj(start, nums, target):
-    pass
+def groupnoadj(index, nums, target):
+    if target == 0:
+        return True
+
+    if index >= len(nums):
+        return False
+
+    # NOT choosing the current number
+    if groupnoadj(index+1, nums, target):
+        return True
+    else:
+        # choosing the current number
+        return groupnoadj(index+2, nums, target-nums[index])
 
 def test_groupnoadj_one():
     assert(groupnoadj(0, [2, 5, 10, 4], 12) == True)

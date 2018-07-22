@@ -27,9 +27,19 @@ groupsum(0, [2, 4, 8], 9) == False
 http://codingbat.com/prob/p145416
 """
 
-def groupsum(start, nums, target):
-    pass
+def groupsum(index, nums, target):
+    if target == 0:
+        return True
 
+    if index >= len(nums):
+        return False
+
+    if groupsum(index+1, nums, target):
+        return True
+    else:
+        return groupsum(index+1, nums, target - nums[index])
+
+    
 def test_groupsum_one():
     assert(groupsum(0, [2, 4, 8], 10) == True)
 
