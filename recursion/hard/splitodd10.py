@@ -19,8 +19,20 @@ splitodd10([5, 5, 6, 1]) == True
 http://codingbat.com/prob/p171660
 """
 
-def splitodd10(nums):
-    pass
+def splitodd10(nums, index=0, group1sum=0, group2sum=0):
+    if index >= len(nums):
+        if group1sum % 10 == 0 and group2sum % 2 == 1:
+            return True
+        elif group2sum % 10 == 0 and group1sum % 2 == 1:
+            return True
+        else:
+            return False
+
+    if splitodd10(nums, index+1, group1sum + nums[index], group2sum):
+        return True
+    else:
+        return splitodd10(nums, index+1, group1sum, group2sum + nums[index])
+
 
 def test_splitodd10_one():
     assert(splitodd10([5, 5, 5]) == True)
