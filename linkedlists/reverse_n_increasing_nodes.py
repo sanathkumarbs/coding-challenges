@@ -84,3 +84,22 @@ def test_reorg_one():
     print result
     
     assert(result == [0,2,1,5,4,3,9,8,7,6,11,10])
+
+
+def test_reorg_two():
+    ll = LinkedList()
+    ll.push(0)
+    ll.push(1)
+    ll.push(2)
+    ll.push(3)
+
+    print " "
+
+    result = _get_all_data(ll.head)
+    print result
+
+    head = reorg(ll.head)
+    result = _get_all_data(head)
+    print result
+    
+    assert(result == [0,2,1,3])

@@ -96,3 +96,12 @@ def test_isduplindrome_three():
     ip.push('m')
 
     assert(isduplindrome(ip) == False)
+
+def test_isduplindrome_four():
+    ip = ArrayStack()
+    ip.push('m')
+    ip.push('m')
+    ip.push('m')
+    ip.push('m')
+
+    assert(isduplindrome(ip) == True)
