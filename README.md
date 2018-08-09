@@ -1,2 +1,2 @@
-# coding-challenges
-Collection of all coding problems, challenges solved
+# Coding Challenges
+Collection of all coding problems and challenges solved.
